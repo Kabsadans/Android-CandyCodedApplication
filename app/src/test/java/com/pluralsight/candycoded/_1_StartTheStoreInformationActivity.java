@@ -1,9 +1,15 @@
 package com.pluralsight.candycoded;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,15 +20,10 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @PrepareForTest({AppCompatActivity.class, MainActivity.class, Intent.class, InfoActivity.class})
 @RunWith(PowerMockRunner.class)
 public class _1_StartTheStoreInformationActivity {
-    private static MainActivity activity;
 
     private static boolean onOptionsItemSelected_result = true;
     private static boolean called_Intent = false;
@@ -31,9 +32,9 @@ public class _1_StartTheStoreInformationActivity {
 
     // Mockito setup
     @BeforeClass
-    public static void setup() throws Exception {
+    public static void setup() {
         // Spy on a MainActivity instance.
-        activity = PowerMockito.spy(new MainActivity());
+        MainActivity activity = PowerMockito.spy(new MainActivity());
         // Create a fake Bundle to pass in.
         Bundle bundle = Mockito.mock(Bundle.class);
         // Create a spy Intent to return from new Intent().
@@ -109,7 +110,7 @@ public class _1_StartTheStoreInformationActivity {
     }
 
     @Test
-    public void override_mainactivity_onoptionitemselected() throws Exception {
+    public void override_mainactivity_onoptionitemselected() {
         // Determine if the method OnOptionsItemSelected() is implemented in MainActivity
         // or just in the Base class
         Class<?> myClass = null;
